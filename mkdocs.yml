@@ -1,0 +1,114 @@
+site_name: PostgreSQL Mastery Path
+site_description: A hands-on PostgreSQL course that goes beyond basic SQL — psql, data types, roles, MVCC, VACUUM, index types, EXPLAIN, locking, WAL, JSONB, full-text search, PL/pgSQL, partitioning, row-level security, replication, point-in-time recovery, monitoring and tuning.
+site_url: https://sigilipelli.github.io/postgresql-mastery-path/
+repo_url: https://github.com/sigilipelli/postgresql-mastery-path
+repo_name: postgresql-mastery-path
+
+theme:
+  name: material
+  favicon: assets/favicon.svg
+  custom_dir: docs/overrides
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/progress-tracker.css
+
+extra_javascript:
+  - javascripts/progress-tracker.js
+
+nav:
+  - Home: index.md
+  - Privacy Policy: privacy.md
+  - License: license.md
+  - "Level 1 · PostgreSQL Foundations":
+      - Overview: level-1/index.md
+      - "01 · How PostgreSQL Is Built: Clusters, Processes & Setup": level-1/01-architecture-and-setup.md
+      - "02 · psql Like a Pro": level-1/02-psql-like-a-pro.md
+      - "03 · PostgreSQL Data Types That Matter": level-1/03-data-types.md
+      - "04 · Schemas, search_path & Organizing Objects": level-1/04-schemas-search-path.md
+      - "05 · Roles, Privileges & Client Authentication": level-1/05-roles-privileges.md
+      - "06 · Constraints Beyond the Basics": level-1/06-constraints.md
+      - "07 · Transactions & Isolation Levels in Practice": level-1/07-transactions-isolation.md
+      - "08 · PostgreSQL-Flavoured SQL: RETURNING, Upserts, MERGE & More": level-1/08-postgres-sql-features.md
+      - "09 · Backups with pg_dump & pg_restore": level-1/09-pg-dump-restore.md
+      - "10 · Project — Event Ticketing Database": level-1/10-project-event-ticketing.md
+  - "Level 2 · Internals: MVCC, Storage & Indexes":
+      - Overview: level-2/index.md
+      - "01 · MVCC: How Rows Become Visible": level-2/01-mvcc.md
+      - "02 · VACUUM, Autovacuum & Bloat": level-2/02-vacuum-autovacuum.md
+      - "03 · Pages, TOAST, Fillfactor & HOT Updates": level-2/03-storage-toast-hot.md
+      - "04 · B-tree Indexes in Depth": level-2/04-btree-indexes.md
+      - "05 · GIN, GiST, BRIN & Hash Indexes": level-2/05-other-index-types.md
+      - "06 · Reading EXPLAIN ANALYZE": level-2/06-explain-analyze.md
+      - "07 · The Planner & Statistics": level-2/07-planner-statistics.md
+      - "08 · Locks, Deadlocks & SKIP LOCKED": level-2/08-locking.md
+      - "09 · WAL, Checkpoints & Durability": level-2/09-wal-checkpoints.md
+      - "10 · Project — Diagnose a Slow Database": level-2/10-project-slow-database.md
+  - "Level 3 · Advanced Features":
+      - Overview: level-3/index.md
+      - "01 · JSONB in Depth": level-3/01-jsonb.md
+      - "02 · Full-Text Search": level-3/02-full-text-search.md
+      - "03 · PL/pgSQL Functions & Procedures": level-3/03-plpgsql.md
+      - "04 · Triggers & Audit Logging": level-3/04-triggers-audit.md
+      - "05 · Advanced Querying: LATERAL, Recursive CTEs & Grouping Sets": level-3/05-advanced-querying.md
+      - "06 · Declarative Partitioning": level-3/06-partitioning.md
+      - "07 · Row-Level Security for Multi-Tenant Apps": level-3/07-row-level-security.md
+      - "08 · Extensions Worth Knowing": level-3/08-extensions.md
+      - "09 · LISTEN/NOTIFY & Job Queues in Postgres": level-3/09-listen-notify-queues.md
+      - "10 · Project — Multi-Tenant SaaS Backend": level-3/10-project-multi-tenant-saas.md
+  - "Level 4 · Operations & Production":
+      - Overview: level-4/index.md
+      - "01 · Configuration & Memory Tuning": level-4/01-configuration-tuning.md
+      - "02 · Connections & Pooling": level-4/02-connection-pooling.md
+      - "03 · Streaming Replication": level-4/03-streaming-replication.md
+      - "04 · Logical Replication & Change Data Capture": level-4/04-logical-replication.md
+      - "05 · Point-in-Time Recovery": level-4/05-point-in-time-recovery.md
+      - "06 · Monitoring a Running Database": level-4/06-monitoring.md
+      - "07 · Zero-Downtime Schema Migrations": level-4/07-zero-downtime-migrations.md
+      - "08 · Security Hardening": level-4/08-security-hardening.md
+      - "09 · Upgrades & High Availability": level-4/09-upgrades-high-availability.md
+      - "10 · Capstone — Production-Ready PostgreSQL": level-4/10-capstone-production-ready.md
