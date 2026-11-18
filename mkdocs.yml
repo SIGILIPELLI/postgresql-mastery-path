@@ -1,6 +1,6 @@
 site_name: PostgreSQL Mastery Path
 site_description: A hands-on PostgreSQL course that goes beyond basic SQL — psql, data types, roles, MVCC, VACUUM, index types, EXPLAIN, locking, WAL, JSONB, full-text search, PL/pgSQL, partitioning, row-level security, replication, point-in-time recovery, monitoring and tuning.
-site_url: https://sigilipelli.github.io/postgresql-mastery-path/
+site_url: https://learnmasterypath.com/postgresql-mastery-path/
 repo_url: https://github.com/sigilipelli/postgresql-mastery-path
 repo_name: postgresql-mastery-path
 

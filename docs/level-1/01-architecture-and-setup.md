@@ -15,7 +15,7 @@ This lesson gets a server running on your machine and then takes it apart.
 !!! info "Where this course starts"
     You should already be comfortable with everyday SQL: `SELECT`, joins, `GROUP BY`, creating
     tables. If not, work through the
-    [SQL Mastery Path](https://sigilipelli.github.io/sql-mastery-path/) first — this course builds
+    [SQL Mastery Path](https://learnmasterypath.com/sql-mastery-path/) first — this course builds
     on it rather than repeating it.
 
 ## Vocabulary: cluster, database, schema

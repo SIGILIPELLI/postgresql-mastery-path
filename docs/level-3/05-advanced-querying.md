@@ -4,7 +4,7 @@ description: "Beyond basic SQL: LATERAL joins, recursive CTEs with SEARCH and CY
 
 # 05 · Advanced Querying: LATERAL, Recursive CTEs & Grouping Sets
 
-The [SQL Mastery Path](https://sigilipelli.github.io/sql-mastery-path/) covers window functions and
+The [SQL Mastery Path](https://learnmasterypath.com/sql-mastery-path/) covers window functions and
 basic CTEs. This lesson picks up where it leaves off, with the features that let one PostgreSQL query
 replace a loop in application code: `LATERAL` joins for per-row subqueries, recursive CTEs with
 built-in ordering and cycle detection, multi-level aggregation in a single pass, date-aware window

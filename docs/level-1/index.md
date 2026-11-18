@@ -16,9 +16,9 @@ when that code runs, and often has a race condition. The project at the end prov
 ticketing system that survives 40 simultaneous buyers fighting for 5 seats.
 
 **Prerequisites:** everyday SQL — `SELECT`, joins, `GROUP BY`, `CREATE TABLE`. The
-[SQL Mastery Path](https://sigilipelli.github.io/sql-mastery-path/) covers those. Some lessons use a
+[SQL Mastery Path](https://learnmasterypath.com/sql-mastery-path/) covers those. Some lessons use a
 few lines of Python to run concurrent sessions; the
-[Python Mastery Path](https://sigilipelli.github.io/python-mastery-path/) is enough background.
+[Python Mastery Path](https://learnmasterypath.com/python-mastery-path/) is enough background.
 
 **Setup:** every command was run on PostgreSQL 18.6. Lesson 1 shows how to install it and create a
 throwaway cluster; versions 16 and 17 work for nearly everything, and features new in 18 are marked.

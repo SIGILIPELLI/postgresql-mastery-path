@@ -13,7 +13,7 @@ PostgreSQL 18.6 — which, as you will see, fails the audit in instructive ways.
 
 This is defensive configuration of your own server. It complements, rather than replaces, the
 application-level practices covered in the [Cybersecurity Mastery
-Path](https://sigilipelli.github.io/cybersecurity-mastery-path/).
+Path](https://learnmasterypath.com/cybersecurity-mastery-path/).
 
 ## 1. Network exposure
 

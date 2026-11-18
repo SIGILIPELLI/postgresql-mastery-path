@@ -47,7 +47,7 @@ some lessons install PgBouncer and a second PostgreSQL major version.
 
 You now have the knowledge to run PostgreSQL in production — and the habit that matters most: verifying
 every claim, including your own, by trying it. Related courses in this series include the
-[Docker](https://sigilipelli.github.io/docker-mastery-path/) and
-[Kubernetes](https://sigilipelli.github.io/kubernetes-mastery-path/) paths for running databases in
-containers, and the [Data Engineering Mastery Path](https://sigilipelli.github.io/data-engineering-mastery-path/)
+[Docker](https://learnmasterypath.com/docker-mastery-path/) and
+[Kubernetes](https://learnmasterypath.com/kubernetes-mastery-path/) paths for running databases in
+containers, and the [Data Engineering Mastery Path](https://learnmasterypath.com/data-engineering-mastery-path/)
 for moving data out of PostgreSQL into analytics systems.
