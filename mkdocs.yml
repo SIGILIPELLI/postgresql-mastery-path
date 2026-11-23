@@ -88,8 +88,8 @@ not_in_nav: |
 
 nav:
   - Home: index.md
-  - "💼 Interview Questions": interview-questions.md
-  - "📋 Cheat Sheet": cheat-sheet.md
+  - Interview Questions: interview-questions.md
+  - Cheat Sheet: cheat-sheet.md
   - "Level 1 · PostgreSQL Foundations":
       - Overview: level-1/index.md
       - "01 · How PostgreSQL Is Built: Clusters, Processes & Setup": level-1/01-architecture-and-setup.md
@@ -138,5 +138,5 @@ nav:
       - "08 · Security Hardening": level-4/08-security-hardening.md
       - "09 · Upgrades & High Availability": level-4/09-upgrades-high-availability.md
       - "10 · Capstone — Production-Ready PostgreSQL": level-4/10-capstone-production-ready.md
-  - "🎯 Final Quiz": quiz.md
+  - Final Quiz: quiz.md
 
