@@ -82,12 +82,14 @@ extra:
     - name: "Vector Databases"
       url: https://learnmasterypath.com/python-mastery-path/vector-databases-mastery-path/
 
+not_in_nav: |
+  privacy.md
+  license.md
+
 nav:
   - Home: index.md
   - "💼 Interview Questions": interview-questions.md
   - "📋 Cheat Sheet": cheat-sheet.md
-  - Privacy Policy: privacy.md
-  - License: license.md
   - "Level 1 · PostgreSQL Foundations":
       - Overview: level-1/index.md
       - "01 · How PostgreSQL Is Built: Clusters, Processes & Setup": level-1/01-architecture-and-setup.md
