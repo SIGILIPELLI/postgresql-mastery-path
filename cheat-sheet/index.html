@@ -1,0 +1,3845 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A free PostgreSQL cheat sheet: 23 quick-reference tables from every level of the PostgreSQL Mastery Path, each linked to its full lesson.">
+      
+      
+      
+        <link rel="canonical" href="https://learnmasterypath.com/postgresql-mastery-path/cheat-sheet/">
+      
+      
+        <link rel="prev" href="../interview-questions/">
+      
+      
+        <link rel="next" href="../level-1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+  
+  <title>PostgreSQL Cheat Sheet: Quick Reference, Beginner to Advanced</title>
+
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/progress-tracker.css">
+    
+      <link rel="stylesheet" href="../stylesheets/final-quiz.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05VBGCXN12"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-05VBGCXN12');
+  </script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mastery Path">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="PostgreSQL Cheat Sheet: Quick Reference, Beginner to Advanced">
+  <meta property="og:description" content="A free PostgreSQL cheat sheet: 23 quick-reference tables from every level of the PostgreSQL Mastery Path, each linked to its full lesson.">
+  <meta property="og:url" content="https://learnmasterypath.com/postgresql-mastery-path/cheat-sheet/">
+  <meta property="og:image" content="https://learnmasterypath.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mastery Path: free structured courses, beginner to master">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PostgreSQL Cheat Sheet: Quick Reference, Beginner to Advanced">
+  <meta name="twitter:description" content="A free PostgreSQL cheat sheet: 23 quick-reference tables from every level of the PostgreSQL Mastery Path, each linked to its full lesson.">
+  <meta name="twitter:image" content="https://learnmasterypath.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9440969811959397"
+     crossorigin="anonymous"></script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Mastery Path", "item": "https://learnmasterypath.com/"},
+      {"@type": "ListItem", "position": 2, "name": "PostgreSQL Mastery Path", "item": "https://learnmasterypath.com/postgresql-mastery-path/"},
+      {"@type": "ListItem", "position": 3, "name": "Cheat Sheet", "item": "https://learnmasterypath.com/postgresql-mastery-path/cheat-sheet/"}
+    ]
+  }
+  </script>
+  <style>
+    .md-banner a:hover { text-decoration: underline !important; }
+    .mp-related { margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest); font-size: .78rem; }
+    .mp-related h2 { font-size: .9rem; margin: 0 0 .5rem; }
+    .mp-related ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+    .mp-related li { margin: 0 !important; }
+  </style>
+  <script type="application/json" id="mp-course-meta">{"home": false, "id": "postgresql-mastery-path", "name": "PostgreSQL Mastery Path", "repo": "https://github.com/sigilipelli/postgresql-mastery-path", "src": "cheat-sheet.md", "url": "https://learnmasterypath.com/postgresql-mastery-path/"}</script>
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/learn.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/course.css?v=1">
+  <script src="https://learnmasterypath.com/assets/learn.js" defer></script>
+  <script src="https://learnmasterypath.com/assets/signup.js" defer></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#postgresql-cheat-sheet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <a href="https://learnmasterypath.com/" style="color: inherit; text-decoration: none;">
+    &larr; Mastery Path &middot; all 100+ free courses
+  </a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/search/" style="color: inherit; text-decoration: none;">Search all courses</a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/resume/" style="color: inherit; font-weight: 700; text-decoration: none;">
+    Got the skills? Free resume ATS check &rarr;
+  </a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PostgreSQL Mastery Path" class="md-header__button md-logo" aria-label="PostgreSQL Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PostgreSQL Mastery Path
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PostgreSQL Cheat Sheet: Quick Reference, Beginner to Advanced
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sigilipelli/postgresql-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    postgresql-mastery-path
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../interview-questions/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Questions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Cheat Sheet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 1 · PostgreSQL Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-2/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 2 · Internals: MVCC, Storage & Indexes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-3/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 3 · Advanced Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-4/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 4 · Operations & Production
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quiz/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Final Quiz
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PostgreSQL Mastery Path" class="md-nav__button md-logo" aria-label="PostgreSQL Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    PostgreSQL Mastery Path
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sigilipelli/postgresql-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    postgresql-mastery-path
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interview-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-postgresql-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · PostgreSQL Foundations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · PostgreSQL Foundations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-how-postgresql-is-built-clusters-processes-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · How PostgreSQL Is Built: Clusters, Processes &amp; Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-psql-like-a-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · psql Like a Pro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-postgresql-data-types-that-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · PostgreSQL Data Types That Matter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-schemas-search_path-organizing-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Schemas, search_path &amp; Organizing Objects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-roles-privileges-client-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Roles, Privileges &amp; Client Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-transactions-isolation-levels-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Transactions &amp; Isolation Levels in Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-backups-with-pg_dump-pg_restore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Backups with pg_dump &amp; pg_restore
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-internals-mvcc-storage-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Internals: MVCC, Storage &amp; Indexes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Internals: MVCC, Storage &amp; Indexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#02-vacuum-autovacuum-bloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · VACUUM, Autovacuum &amp; Bloat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-gin-gist-brin-hash-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · GIN, GiST, BRIN &amp; Hash Indexes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-reading-explain-analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Reading EXPLAIN ANALYZE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-locks-deadlocks-skip-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Locks, Deadlocks &amp; SKIP LOCKED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-diagnose-a-slow-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Diagnose a Slow Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-jsonb-in-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · JSONB in Depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-plpgsql-functions-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · PL/pgSQL Functions &amp; Procedures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-triggers-audit-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Triggers &amp; Audit Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-extensions-worth-knowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Extensions Worth Knowing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-multi-tenant-saas-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Multi-Tenant SaaS Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-operations-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Operations &amp; Production
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Operations &amp; Production">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-configuration-memory-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Configuration &amp; Memory Tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-connections-pooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Connections &amp; Pooling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-monitoring-a-running-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Monitoring a Running Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-zero-downtime-schema-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Zero-Downtime Schema Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-upgrades-high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Upgrades &amp; High Availability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-production-ready-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Production-Ready PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1 · PostgreSQL Foundations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 1 · PostgreSQL Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/01-architecture-and-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · How PostgreSQL Is Built: Clusters, Processes & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/02-psql-like-a-pro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · psql Like a Pro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/03-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · PostgreSQL Data Types That Matter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/04-schemas-search-path/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Schemas, search_path & Organizing Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/05-roles-privileges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Roles, Privileges & Client Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/06-constraints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Constraints Beyond the Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/07-transactions-isolation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Transactions & Isolation Levels in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/08-postgres-sql-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · PostgreSQL-Flavoured SQL: RETURNING, Upserts, MERGE & More
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/09-pg-dump-restore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Backups with pg_dump & pg_restore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/10-project-event-ticketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Event Ticketing Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2 · Internals: MVCC, Storage & Indexes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 2 · Internals: MVCC, Storage & Indexes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/01-mvcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · MVCC: How Rows Become Visible
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/02-vacuum-autovacuum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · VACUUM, Autovacuum & Bloat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/03-storage-toast-hot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Pages, TOAST, Fillfactor & HOT Updates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/04-btree-indexes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · B-tree Indexes in Depth
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/05-other-index-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · GIN, GiST, BRIN & Hash Indexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/06-explain-analyze/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Reading EXPLAIN ANALYZE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/07-planner-statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · The Planner & Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/08-locking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Locks, Deadlocks & SKIP LOCKED
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/09-wal-checkpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · WAL, Checkpoints & Durability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/10-project-slow-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Diagnose a Slow Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-3/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3 · Advanced Features
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 3 · Advanced Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/01-jsonb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · JSONB in Depth
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/02-full-text-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Full-Text Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/03-plpgsql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · PL/pgSQL Functions & Procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/04-triggers-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Triggers & Audit Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/05-advanced-querying/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Advanced Querying: LATERAL, Recursive CTEs & Grouping Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/06-partitioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Declarative Partitioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/07-row-level-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Row-Level Security for Multi-Tenant Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/08-extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Extensions Worth Knowing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/09-listen-notify-queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · LISTEN/NOTIFY & Job Queues in Postgres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/10-project-multi-tenant-saas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Multi-Tenant SaaS Backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-4/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4 · Operations & Production
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 4 · Operations & Production
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/01-configuration-tuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Configuration & Memory Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/02-connection-pooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Connections & Pooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/03-streaming-replication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Streaming Replication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/04-logical-replication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Logical Replication & Change Data Capture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/05-point-in-time-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Point-in-Time Recovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/06-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Monitoring a Running Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/07-zero-downtime-migrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Zero-Downtime Schema Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/08-security-hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Security Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/09-upgrades-high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Upgrades & High Availability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/10-capstone-production-ready/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Capstone — Production-Ready PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-postgresql-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · PostgreSQL Foundations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · PostgreSQL Foundations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-how-postgresql-is-built-clusters-processes-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · How PostgreSQL Is Built: Clusters, Processes &amp; Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-psql-like-a-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · psql Like a Pro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-postgresql-data-types-that-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · PostgreSQL Data Types That Matter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-schemas-search_path-organizing-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Schemas, search_path &amp; Organizing Objects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-roles-privileges-client-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Roles, Privileges &amp; Client Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-transactions-isolation-levels-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Transactions &amp; Isolation Levels in Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-backups-with-pg_dump-pg_restore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Backups with pg_dump &amp; pg_restore
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-internals-mvcc-storage-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Internals: MVCC, Storage &amp; Indexes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Internals: MVCC, Storage &amp; Indexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#02-vacuum-autovacuum-bloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · VACUUM, Autovacuum &amp; Bloat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-gin-gist-brin-hash-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · GIN, GiST, BRIN &amp; Hash Indexes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-reading-explain-analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Reading EXPLAIN ANALYZE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-locks-deadlocks-skip-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Locks, Deadlocks &amp; SKIP LOCKED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-diagnose-a-slow-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Diagnose a Slow Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-jsonb-in-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · JSONB in Depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-plpgsql-functions-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · PL/pgSQL Functions &amp; Procedures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-triggers-audit-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Triggers &amp; Audit Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-extensions-worth-knowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Extensions Worth Knowing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-multi-tenant-saas-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Multi-Tenant SaaS Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-operations-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Operations &amp; Production
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Operations &amp; Production">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-configuration-memory-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Configuration &amp; Memory Tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-connections-pooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Connections &amp; Pooling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-monitoring-a-running-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Monitoring a Running Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-zero-downtime-schema-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Zero-Downtime Schema Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-upgrades-high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Upgrades &amp; High Availability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-production-ready-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Production-Ready PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<h1 id="postgresql-cheat-sheet">PostgreSQL Cheat Sheet<a class="headerlink" href="#postgresql-cheat-sheet" title="Permanent link">&para;</a></h1>
+<p>Quick-reference tables from <strong>23 lessons</strong> of the free PostgreSQL Mastery Path, in course order from beginner to advanced. Each section links to the full lesson with explanations and runnable examples.</p>
+<h2 id="level-1-postgresql-foundations">Level 1 · PostgreSQL Foundations<a class="headerlink" href="#level-1-postgresql-foundations" title="Permanent link">&para;</a></h2>
+<h3 id="01-how-postgresql-is-built-clusters-processes-setup"><a href="../level-1/01-architecture-and-setup/">01 · How PostgreSQL Is Built: Clusters, Processes &amp; Setup</a><a class="headerlink" href="#01-how-postgresql-is-built-clusters-processes-setup" title="Permanent link">&para;</a></h3>
+<p><em>Vocabulary: cluster, database, schema</em></p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it is</th>
+<th>Created by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cluster</strong></td>
+<td>One running server: one data directory, one port, one set of roles, many databases</td>
+<td><code>initdb</code></td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>An isolated namespace inside the cluster. A connection belongs to exactly one database</td>
+<td><code>CREATE DATABASE</code></td>
+</tr>
+<tr>
+<td><strong>Schema</strong></td>
+<td>A folder for tables, functions and types <em>inside</em> one database</td>
+<td><code>CREATE SCHEMA</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="02-psql-like-a-pro"><a href="../level-1/02-psql-like-a-pro/">02 · psql Like a Pro</a><a class="headerlink" href="#02-psql-like-a-pro" title="Permanent link">&para;</a></h3>
+<p><em>Describing things: the <code>\d</code> family</em></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Lists</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\l</code></td>
+<td>databases</td>
+</tr>
+<tr>
+<td><code>\dn</code></td>
+<td>schemas</td>
+</tr>
+<tr>
+<td><code>\dt</code>, <code>\dv</code>, <code>\dm</code>, <code>\ds</code></td>
+<td>tables, views, materialized views, sequences</td>
+</tr>
+<tr>
+<td><code>\di</code></td>
+<td>indexes</td>
+</tr>
+<tr>
+<td><code>\df</code></td>
+<td>functions</td>
+</tr>
+<tr>
+<td><code>\du</code></td>
+<td>roles</td>
+</tr>
+<tr>
+<td><code>\dx</code></td>
+<td>installed extensions</td>
+</tr>
+<tr>
+<td><code>\dp</code></td>
+<td>access privileges</td>
+</tr>
+<tr>
+<td><code>\d+ name</code></td>
+<td>an object with extra detail: storage, size, description</td>
+</tr>
+</tbody>
+</table>
+<h3 id="03-postgresql-data-types-that-matter"><a href="../level-1/03-data-types/">03 · PostgreSQL Data Types That Matter</a><a class="headerlink" href="#03-postgresql-data-types-that-matter" title="Permanent link">&para;</a></h3>
+<p><em>Numbers: exact or approximate?</em></p>
+<table>
+<thead>
+<tr>
+<th>Use case</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Money, quantities with fixed decimals, anything audited</td>
+<td><code>numeric(12,2)</code> or integer cents in <code>bigint</code></td>
+</tr>
+<tr>
+<td>Measurements, scientific data, ML features</td>
+<td><code>double precision</code></td>
+</tr>
+<tr>
+<td>Counters, IDs</td>
+<td><code>integer</code> or <code>bigint</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="04-schemas-search_path-organizing-objects"><a href="../level-1/04-schemas-search-path/">04 · Schemas, search_path &amp; Organizing Objects</a><a class="headerlink" href="#04-schemas-search_path-organizing-objects" title="Permanent link">&para;</a></h3>
+<p><em>A practical layout</em></p>
+<table>
+<thead>
+<tr>
+<th>Schema</th>
+<th>Contains</th>
+<th>Who can create</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>app</code></td>
+<td>application tables, owned by a migration role</td>
+<td>migration role only</td>
+</tr>
+<tr>
+<td><code>api</code></td>
+<td>views/functions exposed to the app or a REST layer</td>
+<td>migration role</td>
+</tr>
+<tr>
+<td><code>reporting</code></td>
+<td>materialized views for dashboards</td>
+<td>analytics role</td>
+</tr>
+<tr>
+<td><code>extensions</code></td>
+<td>extension objects (<code>CREATE EXTENSION pg_trgm SCHEMA extensions</code>)</td>
+<td>superuser/owner</td>
+</tr>
+<tr>
+<td><code>audit</code></td>
+<td>audit-log tables written by triggers</td>
+<td>nobody but triggers</td>
+</tr>
+</tbody>
+</table>
+<h3 id="05-roles-privileges-client-authentication"><a href="../level-1/05-roles-privileges/">05 · Roles, Privileges &amp; Client Authentication</a><a class="headerlink" href="#05-roles-privileges-client-authentication" title="Permanent link">&para;</a></h3>
+<p><em>Predefined roles</em></p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Grants</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pg_read_all_data</code> / <code>pg_write_all_data</code></td>
+<td>read/write every table in every schema (14+)</td>
+</tr>
+<tr>
+<td><code>pg_monitor</code></td>
+<td>read monitoring views such as full <code>pg_stat_activity</code></td>
+</tr>
+<tr>
+<td><code>pg_signal_backend</code></td>
+<td>cancel or terminate other sessions (not superusers')</td>
+</tr>
+<tr>
+<td><code>pg_read_server_files</code>, <code>pg_write_server_files</code>, <code>pg_execute_server_program</code></td>
+<td>server-side <code>COPY</code> to files/programs — effectively superuser-equivalent, grant with great care</td>
+</tr>
+<tr>
+<td><code>pg_maintain</code></td>
+<td>VACUUM, ANALYZE, REINDEX etc. on all relations (17+)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="07-transactions-isolation-levels-in-practice"><a href="../level-1/07-transactions-isolation/">07 · Transactions &amp; Isolation Levels in Practice</a><a class="headerlink" href="#07-transactions-isolation-levels-in-practice" title="Permanent link">&para;</a></h3>
+<p><em>The three levels PostgreSQL actually has</em></p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Snapshot taken</th>
+<th>Prevents</th>
+<th>Still allows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read Committed (default)</td>
+<td>at the start of <strong>each statement</strong></td>
+<td>dirty reads</td>
+<td>non-repeatable reads, lost updates in read-modify-write code, write skew</td>
+</tr>
+<tr>
+<td>Repeatable Read</td>
+<td>at the <strong>first statement</strong> of the transaction</td>
+<td>the above + non-repeatable and phantom reads, lost updates (by raising an error)</td>
+<td>write skew</td>
+</tr>
+<tr>
+<td>Serializable</td>
+<td>like Repeatable Read, plus dependency tracking</td>
+<td>every anomaly: the result equals <em>some</em> serial order</td>
+<td>— (but transactions can fail and must be retried)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="09-backups-with-pg_dump-pg_restore"><a href="../level-1/09-pg-dump-restore/">09 · Backups with pg_dump &amp; pg_restore</a><a class="headerlink" href="#09-backups-with-pg_dump-pg_restore" title="Permanent link">&para;</a></h3>
+<p><em>The four formats</em></p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Restore with</th>
+<th>Compressed</th>
+<th>Parallel dump</th>
+<th>Parallel restore</th>
+<th>Selective restore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plain (<code>-Fp</code>)</td>
+<td><code>psql</code></td>
+<td>no (pipe through gzip)</td>
+<td>no</td>
+<td>no</td>
+<td>by editing text</td>
+</tr>
+<tr>
+<td>custom (<code>-Fc</code>)</td>
+<td><code>pg_restore</code></td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>directory (<code>-Fd</code>)</td>
+<td><code>pg_restore</code></td>
+<td>yes</td>
+<td><strong>yes</strong></td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>tar (<code>-Ft</code>)</td>
+<td><code>pg_restore</code></td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="level-2-internals-mvcc-storage-indexes">Level 2 · Internals: MVCC, Storage &amp; Indexes<a class="headerlink" href="#level-2-internals-mvcc-storage-indexes" title="Permanent link">&para;</a></h2>
+<h3 id="02-vacuum-autovacuum-bloat"><a href="../level-2/02-vacuum-autovacuum/">02 · VACUUM, Autovacuum &amp; Bloat</a><a class="headerlink" href="#02-vacuum-autovacuum-bloat" title="Permanent link">&para;</a></h3>
+<p><em>Freezing and wraparound</em></p>
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>autovacuum_freeze_max_age</code> (200 million)</td>
+<td>autovacuum forces an <strong>aggressive</strong> anti-wraparound vacuum of the table, even if autovacuum is disabled for it</td>
+</tr>
+<tr>
+<td><code>vacuum_failsafe_age</code> (1.6 billion)</td>
+<td>VACUUM drops its cost throttling and skips index cleanup to finish freezing as fast as possible</td>
+</tr>
+<tr>
+<td>about 2 billion minus 3 million</td>
+<td>the server <strong>refuses to assign new transaction IDs</strong> — no writes — until a VACUUM completes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="05-gin-gist-brin-hash-indexes"><a href="../level-2/05-other-index-types/">05 · GIN, GiST, BRIN &amp; Hash Indexes</a><a class="headerlink" href="#05-gin-gist-brin-hash-indexes" title="Permanent link">&para;</a></h3>
+<p><em>Choosing</em></p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>equality, ranges, sorting, uniqueness</td>
+<td>B-tree</td>
+</tr>
+<tr>
+<td>array/JSONB contains, key exists, full-text match</td>
+<td>GIN</td>
+</tr>
+<tr>
+<td><code>LIKE '%x%'</code>, similarity, regex</td>
+<td>GIN (or GiST) with <code>pg_trgm</code></td>
+</tr>
+<tr>
+<td>ranges overlap, exclusion constraints, geometry, nearest neighbour</td>
+<td>GiST</td>
+</tr>
+<tr>
+<td>huge append-only table, filter on time or ID</td>
+<td>BRIN</td>
+</tr>
+<tr>
+<td>equality only on long values</td>
+<td>hash (or B-tree)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="06-reading-explain-analyze"><a href="../level-2/06-explain-analyze/">06 · Reading EXPLAIN ANALYZE</a><a class="headerlink" href="#06-reading-explain-analyze" title="Permanent link">&para;</a></h3>
+<p><em>Join methods</em></p>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>How it works</th>
+<th>Good when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nested Loop</strong></td>
+<td>for each outer row, look up matches in the inner side (ideally via an index)</td>
+<td>outer side is small; inner side has an index on the join key</td>
+</tr>
+<tr>
+<td><strong>Hash Join</strong></td>
+<td>build a hash table from the smaller input, then probe it with each row of the other</td>
+<td>large unsorted inputs, equality joins</td>
+</tr>
+<tr>
+<td><strong>Merge Join</strong></td>
+<td>walk two inputs sorted on the join key in step</td>
+<td>both inputs already sorted (e.g. from indexes), or very large inputs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="08-locks-deadlocks-skip-locked"><a href="../level-2/08-locking/">08 · Locks, Deadlocks &amp; SKIP LOCKED</a><a class="headerlink" href="#08-locks-deadlocks-skip-locked" title="Permanent link">&para;</a></h3>
+<p><em>Two families of locks</em></p>
+<table>
+<thead>
+<tr>
+<th>Lock mode</th>
+<th>Taken by</th>
+<th>Conflicts with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACCESS SHARE</td>
+<td><code>SELECT</code></td>
+<td>ACCESS EXCLUSIVE only</td>
+</tr>
+<tr>
+<td>ROW SHARE</td>
+<td><code>SELECT ... FOR UPDATE/SHARE</code></td>
+<td>EXCLUSIVE, ACCESS EXCLUSIVE</td>
+</tr>
+<tr>
+<td>ROW EXCLUSIVE</td>
+<td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, <code>MERGE</code></td>
+<td>SHARE and stronger</td>
+</tr>
+<tr>
+<td>SHARE UPDATE EXCLUSIVE</td>
+<td><code>VACUUM</code>, <code>ANALYZE</code>, <code>CREATE INDEX CONCURRENTLY</code>, some <code>ALTER TABLE</code> forms</td>
+<td>itself and stronger</td>
+</tr>
+<tr>
+<td>SHARE</td>
+<td><code>CREATE INDEX</code> (non-concurrent)</td>
+<td>ROW EXCLUSIVE, SHARE UPDATE EXCLUSIVE and the exclusive modes (not other SHARE locks) — <strong>blocks writes</strong></td>
+</tr>
+<tr>
+<td>ACCESS EXCLUSIVE</td>
+<td>most <code>ALTER TABLE</code>, <code>DROP</code>, <code>TRUNCATE</code>, <code>VACUUM FULL</code>, <code>REFRESH MATERIALIZED VIEW</code></td>
+<td><strong>everything, including SELECT</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-project-diagnose-a-slow-database"><a href="../level-2/10-project-slow-database/">10 · Project — Diagnose a Slow Database</a><a class="headerlink" href="#10-project-diagnose-a-slow-database" title="Permanent link">&para;</a></h3>
+<p><em>Step 7 — measure again, the same way</em></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Before</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throughput</td>
+<td>29 tps</td>
+<td>22,584 tps</td>
+</tr>
+<tr>
+<td>Ticket page</td>
+<td>646.8 ms</td>
+<td>0.375 ms</td>
+</tr>
+<tr>
+<td>Inbox</td>
+<td>166.2 ms</td>
+<td>0.374 ms</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>225.1 ms</td>
+<td>0.236 ms</td>
+</tr>
+<tr>
+<td>Login</td>
+<td>64.4 ms</td>
+<td>0.134 ms</td>
+</tr>
+<tr>
+<td>Reply (write)</td>
+<td>4.4 ms</td>
+<td>0.78 ms</td>
+</tr>
+</tbody>
+</table>
+<h2 id="level-3-advanced-features">Level 3 · Advanced Features<a class="headerlink" href="#level-3-advanced-features" title="Permanent link">&para;</a></h2>
+<h3 id="01-jsonb-in-depth"><a href="../level-3/01-jsonb/">01 · JSONB in Depth</a><a class="headerlink" href="#01-jsonb-in-depth" title="Permanent link">&para;</a></h3>
+<p><em>Reading values</em></p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-&gt;  'key'</code> / <code>-&gt; 2</code></td>
+<td><code>jsonb</code> value of a key / array element</td>
+</tr>
+<tr>
+<td><code>-&gt;&gt; 'key'</code></td>
+<td>that value as <code>text</code></td>
+</tr>
+<tr>
+<td><code>#&gt; '{a,b,0}'</code> / <code>#&gt;&gt; '{a,b,0}'</code></td>
+<td>value at a path, as <code>jsonb</code> / <code>text</code></td>
+</tr>
+<tr>
+<td><code>@&gt;</code></td>
+<td>contains (left contains right)</td>
+</tr>
+<tr>
+<td><code>?</code>, <code>?|</code>, <code>?&amp;</code></td>
+<td>key exists / any of / all of</td>
+</tr>
+<tr>
+<td><code>@?</code>, <code>@@</code></td>
+<td>jsonpath exists / jsonpath predicate</td>
+</tr>
+</tbody>
+</table>
+<h3 id="03-plpgsql-functions-procedures"><a href="../level-3/03-plpgsql/">03 · PL/pgSQL Functions &amp; Procedures</a><a class="headerlink" href="#03-plpgsql-functions-procedures" title="Permanent link">&para;</a></h3>
+<p><em>Volatility is a promise to the planner</em></p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Promise</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IMMUTABLE</code></td>
+<td>same arguments → same result, forever; no database access</td>
+<td><code>lower()</code>, <code>vat()</code> above</td>
+</tr>
+<tr>
+<td><code>STABLE</code></td>
+<td>same result within one statement; may read the database</td>
+<td><code>now()</code>, lookups</td>
+</tr>
+<tr>
+<td><code>VOLATILE</code></td>
+<td>anything goes; may change between calls or have side effects</td>
+<td><code>random()</code>, anything that writes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="04-triggers-audit-logging"><a href="../level-3/04-triggers-audit/">04 · Triggers &amp; Audit Logging</a><a class="headerlink" href="#04-triggers-audit-logging" title="Permanent link">&para;</a></h3>
+<p><em>The four kinds of trigger</em></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>FOR EACH ROW</code></th>
+<th><code>FOR EACH STATEMENT</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BEFORE</strong></td>
+<td>can modify <code>NEW</code> or skip the row (<code>RETURN NULL</code>)</td>
+<td>runs once before the statement</td>
+</tr>
+<tr>
+<td><strong>AFTER</strong></td>
+<td>sees the final row; return value ignored</td>
+<td>runs once after; can read <strong>transition tables</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="08-extensions-worth-knowing"><a href="../level-3/08-extensions/">08 · Extensions Worth Knowing</a><a class="headerlink" href="#08-extensions-worth-knowing" title="Permanent link">&para;</a></h3>
+<p><em>Other notable extensions (not run here)</em></p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostGIS</td>
+<td>geographic types, spatial indexes and thousands of GIS functions — the reference spatial database</td>
+</tr>
+<tr>
+<td>TimescaleDB</td>
+<td>time-series hypertables, compression, continuous aggregates (licensing differs by feature)</td>
+</tr>
+<tr>
+<td>pg_partman</td>
+<td>automatic creation and retention of partitions (lesson 6)</td>
+</tr>
+<tr>
+<td>pg_cron</td>
+<td>cron-style job scheduling inside the database</td>
+</tr>
+<tr>
+<td>pg_repack</td>
+<td>rebuild bloated tables and indexes with only brief locks</td>
+</tr>
+<tr>
+<td>pgaudit</td>
+<td>detailed session and object audit logging for compliance</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-project-multi-tenant-saas-backend"><a href="../level-3/10-project-multi-tenant-saas/">10 · Project — Multi-Tenant SaaS Backend</a><a class="headerlink" href="#10-project-multi-tenant-saas-backend" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tenant isolation that survives application bugs</td>
+<td>row-level security (lesson 7)</td>
+</tr>
+<tr>
+<td>search box</td>
+<td>stored, weighted <code>tsvector</code> + GIN (lesson 2)</td>
+</tr>
+<tr>
+<td>label filters</td>
+<td><code>text[]</code> + GIN (Level 2 · 05)</td>
+</tr>
+<tr>
+<td><code>updated_at</code> and audit trail</td>
+<td>triggers (lesson 4)</td>
+</tr>
+<tr>
+<td>who changed it</td>
+<td>per-transaction settings (lessons 4 and 7)</td>
+</tr>
+<tr>
+<td>cheap retention of history</td>
+<td>range partitioning (lesson 6)</td>
+</tr>
+<tr>
+<td>search API</td>
+<td>SQL function (lesson 3)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="level-4-operations-production">Level 4 · Operations &amp; Production<a class="headerlink" href="#level-4-operations-production" title="Permanent link">&para;</a></h2>
+<h3 id="01-configuration-memory-tuning"><a href="../level-4/01-configuration-tuning/">01 · Configuration &amp; Memory Tuning</a><a class="headerlink" href="#01-configuration-memory-tuning" title="Permanent link">&para;</a></h3>
+<p><em>Where settings come from</em></p>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Change takes effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>postmaster</code></td>
+<td>only after a <strong>restart</strong></td>
+</tr>
+<tr>
+<td><code>sighup</code></td>
+<td>on reload (<code>pg_reload_conf()</code>), for all sessions</td>
+</tr>
+<tr>
+<td><code>superuser</code> / <code>user</code></td>
+<td>reload, or per session with <code>SET</code> (superuser-only for the former)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="02-connections-pooling"><a href="../level-4/02-connection-pooling/">02 · Connections &amp; Pooling</a><a class="headerlink" href="#02-connections-pooling" title="Permanent link">&para;</a></h3>
+<p><em>Pool modes and their catch</em></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>A server connection is assigned to a client...</th>
+<th>Compatible with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>session</code></td>
+<td>for the whole client session</td>
+<td>everything; little multiplexing</td>
+</tr>
+<tr>
+<td><code>transaction</code></td>
+<td>for one transaction, then returned</td>
+<td>most apps, <em>if</em> they avoid session state</td>
+</tr>
+<tr>
+<td><code>statement</code></td>
+<td>for one statement (multi-statement transactions forbidden)</td>
+<td>rarely used</td>
+</tr>
+</tbody>
+</table>
+<h3 id="06-monitoring-a-running-database"><a href="../level-4/06-monitoring/">06 · Monitoring a Running Database</a><a class="headerlink" href="#06-monitoring-a-running-database" title="Permanent link">&para;</a></h3>
+<p><em>What to alert on</em></p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Query / source</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server reachable, accepting writes</td>
+<td><code>SELECT 1</code>, <code>pg_is_in_recovery()</code></td>
+<td>obvious, and catches unexpected failovers</td>
+</tr>
+<tr>
+<td>Connections near <code>max_connections</code></td>
+<td><code>count(*)</code> from <code>pg_stat_activity</code></td>
+<td>new connections will be refused</td>
+</tr>
+<tr>
+<td>Oldest transaction / idle-in-transaction age</td>
+<td><code>now() - xact_start</code></td>
+<td>blocks VACUUM, holds locks</td>
+</tr>
+<tr>
+<td>Sessions waiting on locks for long</td>
+<td><code>pg_blocking_pids</code></td>
+<td>outages start this way</td>
+</tr>
+<tr>
+<td>Replication lag (bytes and time)</td>
+<td><code>pg_stat_replication</code> (lesson 3)</td>
+<td>failover data loss, stale reads</td>
+</tr>
+<tr>
+<td>Inactive slots, retained WAL</td>
+<td><code>pg_replication_slots</code></td>
+<td>disk full</td>
+</tr>
+<tr>
+<td>Archiver failures</td>
+<td><code>pg_stat_archiver.failed_count</code></td>
+<td>broken PITR (lesson 5)</td>
+</tr>
+<tr>
+<td>Transaction ID age</td>
+<td><code>age(datfrozenxid)</code> (Level 2 · 02)</td>
+<td>wraparound shutdown</td>
+</tr>
+<tr>
+<td>Disk free for data and WAL</td>
+<td>OS metrics</td>
+<td>the most common outage cause of all</td>
+</tr>
+<tr>
+<td>Error rates, deadlocks, temp spills</td>
+<td><code>pg_stat_database</code> rates, logs</td>
+<td>regressions</td>
+</tr>
+<tr>
+<td>Top statements by total time</td>
+<td><code>pg_stat_statements</code></td>
+<td>capacity and regressions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="07-zero-downtime-schema-migrations"><a href="../level-4/07-zero-downtime-migrations/">07 · Zero-Downtime Schema Migrations</a><a class="headerlink" href="#07-zero-downtime-schema-migrations" title="Permanent link">&para;</a></h3>
+<p><em>Instant, rewrite, or scan?</em></p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ADD COLUMN</code> (nullable, or constant default)</td>
+<td>instant</td>
+</tr>
+<tr>
+<td><code>ADD COLUMN ... DEFAULT volatile()</code></td>
+<td>rewrite</td>
+</tr>
+<tr>
+<td><code>DROP COLUMN</code></td>
+<td>instant (space reclaimed later)</td>
+</tr>
+<tr>
+<td><code>ALTER COLUMN TYPE</code> (most changes)</td>
+<td>rewrite + rebuild indexes on it</td>
+</tr>
+<tr>
+<td><code>ALTER COLUMN TYPE varchar(n)</code> → <code>text</code>, or larger <code>varchar(n)</code></td>
+<td>instant (binary compatible)</td>
+</tr>
+<tr>
+<td><code>SET NOT NULL</code></td>
+<td>full scan under ACCESS EXCLUSIVE — unless a validated <code>CHECK (col IS NOT NULL)</code> exists</td>
+</tr>
+<tr>
+<td><code>ADD CONSTRAINT ... CHECK / FOREIGN KEY</code></td>
+<td>full scan under lock — use <code>NOT VALID</code> + <code>VALIDATE</code></td>
+</tr>
+<tr>
+<td><code>ADD PRIMARY KEY / UNIQUE</code></td>
+<td>index build under lock — build the index <code>CONCURRENTLY</code> first, then <code>ADD CONSTRAINT ... USING INDEX</code></td>
+</tr>
+<tr>
+<td><code>CREATE INDEX</code></td>
+<td>blocks writes — use <code>CONCURRENTLY</code></td>
+</tr>
+<tr>
+<td><code>RENAME</code> table/column</td>
+<td>instant, but breaks code that uses the old name</td>
+</tr>
+</tbody>
+</table>
+<h3 id="09-upgrades-high-availability"><a href="../level-4/09-upgrades-high-availability/">09 · Upgrades &amp; High Availability</a><a class="headerlink" href="#09-upgrades-high-availability" title="Permanent link">&para;</a></h3>
+<p><em>Versions and support</em></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Downtime</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pg_dump</code> / <code>pg_restore</code></td>
+<td>proportional to data size (hours for large DBs)</td>
+<td>simplest, cleans up bloat, works across platforms</td>
+</tr>
+<tr>
+<td><code>pg_upgrade</code></td>
+<td>minutes, mostly independent of data size with <code>--link</code></td>
+<td>rewrites catalogs, reuses data files</td>
+</tr>
+<tr>
+<td>logical replication</td>
+<td>seconds (a switchover)</td>
+<td>most moving parts; sequences, DDL and large objects need care (lesson 4)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="10-capstone-production-ready-postgresql"><a href="../level-4/10-capstone-production-ready/">10 · Capstone — Production-Ready PostgreSQL</a><a class="headerlink" href="#10-capstone-production-ready-postgresql" title="Permanent link">&para;</a></h3>
+<p><em>What "production-ready" means here</em></p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Implemented by</th>
+<th>Lesson</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Only encrypted, password-verified connections</td>
+<td><code>hostssl</code> + <code>scram-sha-256</code> only; clients use <code>verify-full</code></td>
+<td>4 · 08</td>
+</tr>
+<tr>
+<td>Least privilege</td>
+<td>owner / read-write / read-only / monitor / replication roles; no PUBLIC connect</td>
+<td>1 · 05, 4 · 08</td>
+</tr>
+<tr>
+<td>Guard rails</td>
+<td>per-role <code>statement_timeout</code>, <code>lock_timeout</code>, read-only role, idle-transaction timeout</td>
+<td>4 · 01</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td><code>pg_stat_statements</code>, slow-query and DDL logging, a health-check script</td>
+<td>4 · 06</td>
+</tr>
+<tr>
+<td>Recoverability</td>
+<td>WAL archiving + verified base backups, a timed PITR drill</td>
+<td>4 · 05</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>streaming replica over TLS with a capped slot, a failover drill</td>
+<td>4 · 03</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Go deeper with the full <a href="../">PostgreSQL Mastery Path</a> curriculum or test yourself with the <a href="../interview-questions/">interview questions</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+  <nav class="mp-related" aria-label="Related free courses">
+    <h2>Related free courses</h2>
+    <ul>
+      <li><a href="https://learnmasterypath.com/mongodb-mastery-path/">MongoDB</a></li><li><a href="https://learnmasterypath.com/redis-mastery-path/">Redis</a></li><li><a href="https://learnmasterypath.com/snowflake-mastery-path/">Snowflake</a></li><li><a href="https://learnmasterypath.com/databricks-mastery-path/">Databricks</a></li><li><a href="https://learnmasterypath.com/python-mastery-path/vector-databases-mastery-path/">Vector Databases</a></li>
+      <li><a href="https://learnmasterypath.com/">All 100+ courses &rarr;</a></li>
+    </ul>
+  </nav>
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../interview-questions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Interview Questions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Interview Questions
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../level-1/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  <div class="mp-foot">
+    <div class="mp-foot-inner">
+      <a class="mp-foot-brand" href="https://learnmasterypath.com/"><svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg><span>Mastery Path</span></a>
+      <nav class="mp-sitelinks" aria-label="Site and legal links">
+        <a href="https://learnmasterypath.com/">All courses</a>
+        <a href="https://learnmasterypath.com/about.html">About</a>
+        <a href="https://learnmasterypath.com/contact.html">Contact</a>
+        <a href="https://learnmasterypath.com/postgresql-mastery-path/privacy/">Privacy Policy</a>
+        <a href="https://learnmasterypath.com/terms.html">Terms</a>
+        <a href="https://learnmasterypath.com/postgresql-mastery-path/license/">License</a>
+        <a href="https://learnmasterypath.com/verify/">Verify a certificate</a>
+      </nav>
+    </div>
+    <p class="mp-license-note">
+      © 2026 Vinod Kumar Sigilipelli · Except where otherwise noted, lesson content is licensed under
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> and code examples under the
+      <a href="https://opensource.org/license/mit">MIT License</a>.
+    </p>
+  </div>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.path", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/progress-tracker.js"></script>
+      
+        <script src="../javascripts/final-quiz.js"></script>
+      
+    
+  </body>
+</html>
