@@ -1,6 +1,6 @@
 ---
 title: "Free PostgreSQL Course: psql, MVCC, Indexes, EXPLAIN, JSONB, Partitioning, Replication, Backups and Tuning"
-description: "Free PostgreSQL course: 40 lessons run on PostgreSQL 18 — MVCC, VACUUM, indexes, EXPLAIN, JSONB, RLS, replication, PITR and production operations."
+description: "Free PostgreSQL course: 36 lessons and 4 projects run on PostgreSQL 18 — MVCC, VACUUM, indexes, EXPLAIN, JSONB, RLS, replication, PITR and production operations."
 ---
 
 # PostgreSQL Mastery Path
@@ -61,7 +61,7 @@ replication slot can fill a disk, and why `pg_upgrade` can upgrade a terabyte in
 | **3 · Advanced Features** | JSONB, search, PL/pgSQL, triggers, partitioning, RLS, extensions, queues | 10 | Build rich backends without bolting on extra systems |
 | **4 · Operations & Production** | Tuning, pooling, replication, PITR, monitoring, migrations, security, upgrades | 10 | Run PostgreSQL in production and recover when things go wrong |
 
-Each level has 9 teaching modules plus a hands-on project (module 10), for **40 lessons** total.
+Each level has 9 teaching modules plus a hands-on project (module 10), which makes **36 lessons and 4 projects** in total.
 
 ## How to use this site
 
